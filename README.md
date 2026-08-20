@@ -89,9 +89,9 @@ Nobody hands you a Mars contract because you have a big number.
 ## Screens
 
 `HQ` · `Contracts` · `RAM` · `Electricity` · `Water` · `Money` · `Ego/Charisma`
-· `Ops` · `Stonks`
+· `Ops` · `Stonks` · `Save`
 
-Number keys `1`–`9` jump between them.
+Number keys `1`–`9` jump between them; `0` is the tenth.
 
 ## Saving
 

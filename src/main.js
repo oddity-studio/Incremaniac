@@ -81,12 +81,14 @@ document.addEventListener('visibilitychange', () => {
   else lastDraw = performance.now();
 });
 
-// Number keys jump between screens.
+// Number keys jump between screens; 0 is the tenth.
 const navigable = SCREENS.filter((s) => !s.sep);
 window.addEventListener('keydown', (e) => {
-  if (e.target.matches('input, textarea')) return;
-  const i = parseInt(e.key, 10);
-  if (i >= 1 && i <= navigable.length) router.go(navigable[i - 1].id);
+  const t = e.target;
+  if (t && typeof t.matches === 'function' && t.matches('input, textarea')) return;
+  if (!/^[0-9]$/.test(e.key)) return;
+  const i = e.key === '0' ? 10 : Number(e.key);
+  if (i <= navigable.length) router.go(navigable[i - 1].id);
 });
 
 // Handy for tuning and for driving a render by hand when debugging.

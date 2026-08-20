@@ -9,6 +9,7 @@ import moneyScreen from './screens/money.js';
 import pr from './screens/pr.js';
 import ops from './screens/ops.js';
 import stonks from './screens/stonks.js';
+import saveScreen from './screens/save.js';
 
 export const SCREENS = [
   overview,
@@ -17,6 +18,8 @@ export const SCREENS = [
   ram, power, water, moneyScreen, pr,
   { sep: true },
   ops, stonks,
+  { sep: true },
+  saveScreen,
 ];
 
 export function makeRouter(game) {
