@@ -1,0 +1,12 @@
+{
+  "name": "incremaniac",
+  "version": "0.1.0",
+  "description": "An incremental game about the denominator.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node serve.js",
+    "dev": "node serve.js"
+  },
+  "license": "MIT"
+}
