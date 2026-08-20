@@ -98,8 +98,8 @@ Number keys `1`–`9` jump between them; `0` is the tenth.
 Autosaves every 15 seconds to **localStorage**, mirrored to a **cookie** as a
 fallback for when localStorage is blocked (private browsing, hardened
 settings), with an in-memory last resort so a locked-down browser can still
-play the session out. The Stonks screen reports which of those actually holds
-your run.
+play the session out. The **Save** screen reports which of those actually
+holds your run, and warns you when it stops being enough.
 
 The cookie limit is a hard 4KB, so the stored payload is compacted — transient
 per-tick fields dropped, floats rounded to 8 significant figures, rival market
@@ -131,7 +131,7 @@ src/
   state.js            save shape + every tuning constant
   formula.js          the formula, recomputed from scratch each frame
   engine.js           simulation: purchases, contracts, rivals, failure states
-  save.js             localStorage + export/import
+  save.js             layered persistence, save files, export/import
   format.js           big-number formatting
   data/
     upgrades.js       ~45 purchases across six screens
