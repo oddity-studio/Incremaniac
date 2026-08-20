@@ -88,30 +88,6 @@ html, body {
 .hud-power.crit .aip-value { color: #ff4444; animation: blink .5s steps(2) infinite; }
 .hud-power.crit .aip-state { color: #ff4444; }
 
-/* ================ FORMULA STRIP ================ */
-#formula-strip {
-  flex: 0 0 auto;
-  display: flex; align-items: center; justify-content: center; gap: 2px;
-  padding: 4px; font-size: 14px;
-  background: #1a1a1a; color: #888;
-  border-bottom: 2px solid var(--shadow);
-  overflow-x: auto; white-space: nowrap;
-}
-.f-term {
-  padding: 1px 5px; border-radius: 2px;
-  background: #262626; color: #d0d0d0; font-weight: bold;
-  transition: color .2s;
-}
-.f-term[data-t="ram"]   { color: #6fc3ff; }
-.f-term[data-t="money"] { color: #7dff9b; }
-.f-term[data-t="ego"]   { color: #ff86e0; }
-.f-term[data-t="elec"]  { color: #ffe066; }
-.f-term[data-t="water"] { color: #66d9ff; }
-.f-term[data-t="cha"]   { color: #ffa366; }
-.f-out { color: #fff !important; background: var(--navy); }
-.f-op, .f-paren, .f-div, .f-eq { color: #777; padding: 0 3px; }
-.f-div { font-size: 18px; color: #aaa; }
-
 /* ================ LAYOUT ================ */
 #body { flex: 1; display: flex; min-height: 0; }
 

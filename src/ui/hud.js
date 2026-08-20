@@ -40,12 +40,6 @@ export function makeHud(game) {
   const powerBox = document.querySelector('.hud-power');
   const nameEl = document.getElementById('company-name');
 
-  // Formula strip terms
-  const fTerms = {};
-  document.querySelectorAll('#formula-strip .f-term').forEach((el) => {
-    fTerms[el.dataset.t] = { el, label: el.textContent };
-  });
-
   function update() {
     const s = game.state, d = game.d;
     setText(nameEl, s.company);
@@ -69,14 +63,6 @@ export function makeHud(game) {
     setText(aipState, label || d.status);
     setClass(powerBox, 'hud-power' +
       (d.bubble || d.insolvent ? ' crit' : d.status === 'STRAINED' ? ' warn' : ''));
-
-    setText(fTerms.ram.el, `RAM ${bytes(d.ramEffective)}`);
-    setText(fTerms.money.el, `MONEY ${money(d.incomeGross)}/s`);
-    setText(fTerms.ego.el, `EGO ${money(d.egoBurn)}/s`);
-    setText(fTerms.elec.el, `ELEC ${fmt(d.powerUsed)}MW`);
-    setText(fTerms.water.el, `WATER ${fmt(d.waterBurden)}`);
-    setText(fTerms.cha.el, `CHARISMA ${fmt(d.charisma)}`);
-    setText(fTerms.aip.el, `AI POWER ${fmt(d.aip)}`);
   }
 
   return { update };
