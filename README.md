@@ -93,6 +93,25 @@ Nobody hands you a Mars contract because you have a big number.
 
 Number keys `1`–`9` jump between them.
 
+## Saving
+
+Autosaves every 15 seconds to **localStorage**, mirrored to a **cookie** as a
+fallback for when localStorage is blocked (private browsing, hardened
+settings), with an in-memory last resort so a locked-down browser can still
+play the session out. The Stonks screen reports which of those actually holds
+your run.
+
+The cookie limit is a hard 4KB, so the stored payload is compacted — transient
+per-tick fields dropped, floats rounded to 8 significant figures, rival market
+caps recomputed rather than stored. A realistic late-game save is ~1.5KB. If a
+run ever does outgrow the cookie, it **refuses to write a truncated one** and
+says so, because a cookie that cannot be restored is worse than no cookie: it
+looks like progress.
+
+**Download Save File** writes a readable, self-describing `.json` you control —
+the only copy your browser cannot clear. **Load Save File** takes it back.
+`Export Text` / `Import Text` do the same thing as a paste-able string.
+
 ## Winning
 
 Score is **Stonks**. Nine rivals fold into your cap table at fixed Stonks
