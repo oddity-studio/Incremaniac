@@ -4,10 +4,10 @@ import { C } from '../../state.js';
 
 export default resourceScreen({
   id: 'water', icon: '💧', title: 'THERMAL & HYDROLOGY', nav: 'WATER', cat: 'water',
-  blurb: 'The denominator. WATER is your real cooling burden; CHARISMA is the ' +
-    'portion of it you have talked your way out of. Efficiency upgrades shrink ' +
-    'the burden and raise AI Power — right up until the burden falls below your ' +
-    'own hype, at which point the denominator flips and the bubble pops.',
+  blurb: 'Cooling is the tax reality charges on compute. Efficiency shrinks ' +
+    'that tax and raises AI Power — right up until what you really consume ' +
+    'falls below what you have publicly promised, at which point the whole ' +
+    'story inverts and the bubble pops.',
   diagTitle: 'COOLING LOOP',
   shopTitle: 'THERMAL MANAGEMENT',
 
@@ -21,7 +21,7 @@ export default resourceScreen({
       ['Conspicuous waste multiplier', '×' + d.waterMult.toFixed(2)],
       ['WATER (total burden)', fmt(d.waterBurden) + ' ML/day'],
       ['CHARISMA (narratively removed)', fmt(d.charisma) + ' ML/day'],
-      ['DENOMINATOR &rarr; formula', fmt(d.denominator),
+      ['REALITY REMAINING', fmt(d.denominator),
         d.bubble ? 'bad' : margin < 0.18 ? 'warn' : ''],
       ['Reality margin', pct(Math.max(0, margin), 1), d.bubble ? 'bad' : margin < 0.18 ? 'warn' : ''],
       ['Charisma gains scaled to', '×' + d.charismaYield.toFixed(2),

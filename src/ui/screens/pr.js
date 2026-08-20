@@ -39,7 +39,7 @@ export default resourceScreen({
     if (d.charisma > d.waterBurden * 0.82 && !d.bubble) {
       notes.push(`<div class="warnbox">Charisma is at ${pct(d.charisma / d.waterBurden, 0)}
         of your physical cooling burden. Every podcast from here pushes the
-        denominator closer to zero. Consider being briefly less impressive.</div>`);
+        gap closer to zero. Consider being briefly less impressive.</div>`);
     }
     return notes.join('');
   },

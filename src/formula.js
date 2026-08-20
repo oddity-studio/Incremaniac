@@ -110,8 +110,9 @@ export function derive(state) {
     collapse *= 0.05;
     d.warnings.push({
       level: 'crit', key: 'insolvent', title: 'VANITY INSOLVENCY',
-      text: 'Ego burn exceeds gross income. (MONEY − EGO) has gone negative. ' +
-            'Cut ego, or raise income — until then AI Power runs at 5%.',
+      text: 'You are spending more on yourself than the entire company earns. ' +
+            'Cut the lifestyle, or raise revenue — until one of those happens, ' +
+            'AI Power runs at 5%.',
     });
   }
   if (d.bubble) {
@@ -122,8 +123,9 @@ export function derive(state) {
     collapse *= 0.05;
     d.warnings.push({
       level: 'crit', key: 'bubble', title: 'THE BUBBLE HAS POPPED',
-      text: 'Charisma exceeds your real cooling burden. The story outgrew the ' +
-            'building. Scale up physically — or buy something wasteful — to restore reality.',
+      text: 'You have promised away more than you physically consume. The story ' +
+            'outgrew the building, and everyone noticed at once. Scale up for ' +
+            'real — or spend conspicuously — to make the story true again.',
     });
   }
 
@@ -131,22 +133,23 @@ export function derive(state) {
   if (!d.bubble && d.denominator < d.waterBurden * 0.18) {
     d.warnings.push({
       level: 'warn', key: 'nearbubble', title: 'HYPE OVERHANG',
-      text: `Charisma (${d.charisma.toFixed(1)}) is closing on Water ` +
-            `(${d.waterBurden.toFixed(1)}). AI Power is spiking because you are ` +
-            'nearly out of physical reality to divide by.',
+      text: `Your public standing (${d.charisma.toFixed(1)}) is closing on what ` +
+            `the plant actually consumes (${d.waterBurden.toFixed(1)}). AI Power ` +
+            'is spiking, and there is very little reality left underneath it.',
     });
   }
   if (!d.insolvent && d.moneyTerm < d.incomeGross * 0.18) {
     d.warnings.push({
       level: 'warn', key: 'nearinsolvent', title: 'BURN ADVISORY',
-      text: `Ego burn is ${((d.egoBurn / d.incomeGross) * 100).toFixed(0)}% of gross income.`,
+      text: `Your personal burn is ${((d.egoBurn / d.incomeGross) * 100).toFixed(0)}% ` +
+            'of everything the company earns.',
     });
   }
   if (d.throttle < 0.999) {
     d.warnings.push({
       level: 'warn', key: 'throttle', title: 'POWER THROTTLING',
       text: `Grid capacity covers only ${(d.throttle * 100).toFixed(1)}% of demand. ` +
-            'Throttled RAM hits the formula twice — buy electricity.',
+            'Throttling costs you twice over — buy electricity.',
     });
   }
 

@@ -3,16 +3,16 @@ import { fmt, money } from '../../format.js';
 
 export default resourceScreen({
   id: 'power', icon: '⚡', title: 'GRID & GENERATION', nav: 'ELECTRICITY', cat: 'elec',
-  blurb: 'The numerator\'s third term. Capacity you do not draw is called ' +
-    '"headroom" in your deck and "nothing" in the formula. Capacity you cannot ' +
-    'supply is called "throttling", and it costs you twice.',
+  blurb: 'Capacity you do not draw is called "headroom" in your deck and ' +
+    '"nothing" by the physical universe. Capacity you cannot supply is called ' +
+    '"throttling", and it costs you twice over.',
   diagTitle: 'SUBSTATION READOUT',
   shopTitle: 'GENERATION & INTERCONNECT',
 
   stats: (s, d) => [
     ['Contracted capacity', fmt(d.elecCapacity) + ' MW'],
     ['Demand from silicon', fmt(d.powerDraw) + ' MW'],
-    ['ACTUALLY DRAWN &rarr; formula', fmt(d.powerUsed) + ' MW'],
+    ['ACTUALLY DRAWN', fmt(d.powerUsed) + ' MW'],
     ['Utilisation', (Math.min(1, 1 / Math.max(d.headroom, 1e-9)) * 100).toFixed(1) + '%'],
     ['Burst headroom', '×' + d.headroom.toFixed(2)],
     ['Headroom bonus to AI Power', '×' + d.headroomBonus.toFixed(3)],

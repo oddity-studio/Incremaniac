@@ -4,10 +4,10 @@ import { C } from '../../state.js';
 
 export default resourceScreen({
   id: 'money', icon: '💵', title: 'CAPITAL MARKETS', nav: 'MONEY', cat: 'money',
-  blurb: 'MONEY in the formula is a rate, not a pile: dollars per second of ' +
-    'gross inflow. Your cash balance is a separate thing you spend. EGO is ' +
-    'subtracted from this rate directly — if your lifestyle outruns your revenue, ' +
-    'the numerator goes negative and the compute stops meaning anything.',
+  blurb: 'What matters here is the rate, not the pile: dollars per second of ' +
+    'gross inflow. Your cash balance is a separate thing you spend. Your ' +
+    'lifestyle comes straight off the top — and if it ever outruns revenue, ' +
+    'the compute stops meaning anything at all.',
   diagTitle: 'P&L (UNAUDITED, UNAUDITABLE)',
   shopTitle: 'REVENUE & FUNDRAISING',
 
@@ -17,9 +17,9 @@ export default resourceScreen({
     ['Recurring contract revenue', money(s.contractIncome) + '/s'],
     ['Structural multiplier', '×' + d.acc.incomeMult.toFixed(2)],
     ['Charisma multiplier', '×' + d.charismaIncomeMult.toFixed(2)],
-    ['MONEY (gross) &rarr; formula', money(d.incomeGross) + '/s'],
+    ['GROSS INCOME', money(d.incomeGross) + '/s'],
     ['EGO (vanity burn)', '−' + money(d.egoBurn) + '/s', d.insolvent ? 'bad' : ''],
-    ['NET (MONEY − EGO)', money(d.moneyTerm) + '/s',
+    ['NET AFTER EGO', money(d.moneyTerm) + '/s',
       d.insolvent ? 'bad' : d.moneyTerm < d.incomeGross * 0.18 ? 'warn' : ''],
     ['Revenue run-rate (daily)', money(d.dailyRevenue, 0)],
     ['Lifetime earned', money(s.stats.totalEarned, 0)],
@@ -29,7 +29,7 @@ export default resourceScreen({
     if (d.insolvent) {
       return `<div class="critbox"><b>VANITY INSOLVENCY.</b> Ego burn
         (${money(d.egoBurn)}/s) exceeds gross income (${money(d.incomeGross)}/s).
-        The numerator has gone negative and AI Power is running at 5%.<br><br>
+        AI Power is running at 5%.<br><br>
         Buy revenue, or visit <b>PRESS &amp; PERSONA</b> and purchase some
         performative humility. The yacht stays. The yacht always stays.</div>`;
     }

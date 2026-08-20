@@ -3,9 +3,9 @@ import { fmt } from '../../format.js';
 
 export default resourceScreen({
   id: 'ops', icon: '🏢', title: 'OPERATIONS', nav: 'OPS', cat: 'ops',
-  blurb: 'Headcount, process, and the multipliers that do not appear anywhere ' +
-    'in the formula but quietly scale all of it. Every hire here buys you the ' +
-    'ability to be overcommitted in more places simultaneously.',
+  blurb: 'Headcount, process, and the quiet multipliers nobody puts in a deck. ' +
+    'Every hire here buys you the ability to be overcommitted in more places ' +
+    'simultaneously.',
   diagTitle: 'ORG CHART (SIMPLIFIED)',
   shopTitle: 'HEADCOUNT & TOOLING',
 
